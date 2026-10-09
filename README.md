@@ -30,61 +30,23 @@ theo dõi đơn hàng.
 
 ## Kiến trúc AWS
 
-Sơ đồ dưới đây là bản tóm tắt kiến trúc AWS được GitHub render trực tiếp:
+Sơ đồ kiến trúc AWS được trình bày trực tiếp bên dưới để có thể xem ngay trên
+GitHub:
 
-```mermaid
-flowchart TB
-    user["Người dùng<br/>Web / Mobile"] --> cdn["Cloudflare CDN"]
-    cdn --> alb["AWS ALB<br/>Load Balancer"]
+![Sơ đồ kiến trúc AWS của nền tảng Shopeee](docs/architecture/aws-ecommerce-platform.png)
 
-    subgraph aws["AWS - Region ap-southeast-1 (Singapore)"]
-        subgraph vpc["VPC 10.0.0.0/16"]
-            subgraph public["Public Subnet"]
-                alb
-                nginx["NGINX<br/>Reverse Proxy"]
-            end
+Kiến trúc thể hiện luồng từ người dùng qua Cloudflare CDN, AWS ALB và NGINX
+đến các ECS task Spring Boot; tầng dữ liệu sử dụng Redis, PostgreSQL RDS và
+Amazon S3. Pipeline CI/CD đi từ GitHub Actions đến AWS ECR và AWS ECS.
 
-            subgraph app["Private Subnet - Application Tier"]
-                product["Product Service<br/>ECS Task"]
-                cart["Cart Service<br/>ECS Task"]
-                order["Order Service<br/>ECS Task"]
-            end
+Các phiên bản của sơ đồ:
 
-            subgraph data["Private Subnet - Data Tier"]
-                redis["Redis<br/>Session Cache"]
-                rds["PostgreSQL RDS<br/>Orders / Products"]
-            end
-
-            alb --> nginx
-            nginx --> product
-            nginx --> cart
-            nginx --> order
-            product --> rds
-            cart --> redis
-            order --> rds
-        end
-
-        s3["Amazon S3<br/>Static Assets"]
-        ecr["AWS ECR<br/>Docker Registry"]
-    end
-
-    cdn --> s3
-    ecr -. "Container images" .-> product
-    ecr -. "Container images" .-> cart
-    ecr -. "Container images" .-> order
-
-    github["GitHub"] --> actions["GitHub Actions<br/>Build & Test"]
-    actions --> ecr
-```
-
-Sơ đồ đầy đủ có thể mở và chỉnh sửa tại:
-
+- [Xem ảnh SVG độ phân giải cao](docs/architecture/aws-ecommerce-platform.svg)
 - [Mở sơ đồ AWS trên diagrams.net](docs/architecture/ecommerce-platform.drawio)
 - [Tài liệu thư mục kiến trúc](docs/architecture/README.md)
 
-Sơ đồ `.drawio` là bản chi tiết dùng để xem các subnet, luồng mạng và thành
-phần triển khai. Sơ đồ Mermaid phía trên là bản tóm tắt để nhà tuyển dụng có
-thể xem nhanh ngay trên GitHub.
+File `.drawio` là bản chi tiết dùng để xem và chỉnh sửa các subnet, luồng mạng
+và thành phần triển khai.
 
 ## Chạy dự án
 

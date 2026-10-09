@@ -1,5 +1,8 @@
-# Architecture
+# Kiến trúc
 
-The `ecommerce-platform.drawio` file is the AWS deployment architecture for
-Shopeee. Open it with [diagrams.net](https://app.diagrams.net/) to view all
-layers and connections.
+Thư mục này chứa sơ đồ kiến trúc AWS của Shopeee:
+
+- `aws-ecommerce-platform.png`: ảnh dùng để hiển thị trực tiếp trong README
+- `aws-ecommerce-platform.svg`: ảnh vector độ phân giải cao
+- `ecommerce-platform.drawio`: file nguồn để mở và chỉnh sửa bằng
+  [diagrams.net](https://app.diagrams.net/)
