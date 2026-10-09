@@ -1,0 +1,71 @@
+/* ─── Product List Page ────────────────────────────────────── */
+.product-list-page { padding-bottom: 48px; }
+
+.pl-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 0 12px;
+}
+.pl-title { font-size: 20px; font-weight: 700; }
+.pl-count { font-size: 13px; color: var(--text-muted); }
+
+/* Sort bar */
+.sort-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  border-radius: var(--radius);
+  padding: 10px 16px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.sort-bar::-webkit-scrollbar { display: none; }
+.sort-label { font-size: 13px; font-weight: 600; color: var(--text-secondary); flex-shrink: 0; }
+.sort-tabs { display: flex; gap: 8px; }
+.sort-tab {
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  transition: all var(--duration);
+  white-space: nowrap;
+}
+.sort-tab:hover { border-color: var(--brand); color: var(--brand); }
+.sort-tab.active { background: var(--brand); color: white; border-color: var(--brand); }
+
+/* Product card in list page (same structure as HomePage cards) */
+.product-card-pl {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--duration) var(--ease);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+.product-card-pl:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}

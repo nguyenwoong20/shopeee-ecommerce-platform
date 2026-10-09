@@ -1,0 +1,55 @@
+# AI Agents
+.gemini
+.agents
+CLAUDE.md
+.cursor
+.vscode
+
+HELP.md
+.env.*
+!.env.example
+target/
+frontend/node_modules/
+frontend/dist/
+/k8s-deployment.yaml
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Agent Customizations & Configs ###
+.agents
+.gemini
+*.log
+.system_generated/
+*task-*.log
+walkthrough.md
+implementation_plan.md
+task.md
