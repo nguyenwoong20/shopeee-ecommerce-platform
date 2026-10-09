@@ -1,9 +1,9 @@
 # Shopeee E-Commerce Platform
 
-Shopeee là dự án thương mại điện tử full-stack được xây dựng để thực hành
-kiến trúc hướng dịch vụ với Spring Boot, React, PostgreSQL và Docker. Phiên
-bản hiện tại là MVP, tập trung vào danh mục sản phẩm, giỏ hàng, thanh toán và
-theo dõi đơn hàng.
+Shopeee là một full-stack e-commerce project được xây dựng để thực hành
+microservices architecture với Spring Boot, React, PostgreSQL và Docker. Phiên
+bản hiện tại là MVP, tập trung vào product catalog, shopping cart, payment và
+order tracking.
 
 ## Tính năng
 
